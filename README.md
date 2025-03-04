@@ -1,6 +1,6 @@
 # TxtPersona CrewAI 🚀  
 
-TxtPersona CrewAI is a multi-agent AI system built with [CrewAI](https://crewai.com) that reads structured user notes and generates a formatted user persona while analyzing the completeness of the provided information.  
+TxtPersona CrewAI is a **multi-agent AI system** built with [CrewAI](https://crewai.com) that **reads structured user notes** and generates a **formatted user persona** while analyzing the **completeness** of the provided information.  
 
 ## ✨ Features  
 - **Reads user profiles** from a text file (`users.txt`)  
@@ -14,7 +14,7 @@ TxtPersona CrewAI is a multi-agent AI system built with [CrewAI](https://crewai.
 ## 📛 Installation  
 Ensure you have **Python 3.10 - 3.12** installed on your system.  
 
-### **1 Install Dependencies**  
+### **1⃣ Install Dependencies**  
 First, install `crewai` and other required packages:  
 ```bash
 pip install crewai
@@ -93,6 +93,12 @@ TxtPersona CrewAI consists of multiple AI agents:
 4. **Push to GitHub** (`git push origin new-feature`)  
 5. **Open a Pull Request**  
 
+---
+
+## ❓ Support & Questions  
+- **GitHub Issues:** Report bugs or request features.  
+- **Join our Discord:** [CrewAI Community](https://discord.com/invite/X4JWnZnxPb)  
+- **CrewAI Docs:** [Read the Docs](https://docs.crewai.com)  
 
 ---
 
