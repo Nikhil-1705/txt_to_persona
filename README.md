@@ -1,54 +1,105 @@
-# Txtpersona Crew
+# TxtPersona CrewAI 🚀  
 
-Welcome to the Txtpersona Crew project, powered by [crewAI](https://crewai.com). This template is designed to help you set up a multi-agent AI system with ease, leveraging the powerful and flexible framework provided by crewAI. Our goal is to enable your agents to collaborate effectively on complex tasks, maximizing their collective intelligence and capabilities.
+TxtPersona CrewAI is a multi-agent AI system built with [CrewAI](https://crewai.com) that reads structured user notes and generates a formatted user persona while analyzing the completeness of the provided information.  
 
-## Installation
+## ✨ Features  
+- **Reads user profiles** from a text file (`users.txt`)  
+- **Formats the extracted data** into structured user personas  
+- **Evaluates the completeness** of each persona and suggests missing details  
+- **Combines the persona and evaluation** into a final structured report  
+- **Saves the output to a markdown file**  
 
-Ensure you have Python >=3.10 <3.13 installed on your system. This project uses [UV](https://docs.astral.sh/uv/) for dependency management and package handling, offering a seamless setup and execution experience.
+---
 
-First, if you haven't already, install uv:
+## 📛 Installation  
+Ensure you have **Python 3.10 - 3.12** installed on your system.  
 
+### **1 Install Dependencies**  
+First, install `crewai` and other required packages:  
+```bash
+pip install crewai
+```
+OR use `uv` for dependency management:  
 ```bash
 pip install uv
+uv venv
+uv install
 ```
 
-Next, navigate to your project directory and install the dependencies:
-
-(Optional) Lock the dependencies and install them by using the CLI command:
+### **2⃣ Set Up Environment Variables**  
+Create a `.env` file and add your **OpenAI API key**:  
 ```bash
-crewai install
+OPENAI_API_KEY=your_api_key_here
 ```
-### Customizing
 
-**Add your `OPENAI_API_KEY` into the `.env` file**
+---
 
-- Modify `src/txtpersona/config/agents.yaml` to define your agents
-- Modify `src/txtpersona/config/tasks.yaml` to define your tasks
-- Modify `src/txtpersona/crew.py` to add your own logic, tools and specific args
-- Modify `src/txtpersona/main.py` to add custom inputs for your agents and tasks
+## 🛠️ Customization  
+Modify the configuration files to adjust agent behavior:  
+- **Define agents** in `src/txtpersona/config/agents.yaml`  
+- **Set up tasks** in `src/txtpersona/config/tasks.yaml`  
+- **Adjust logic** in `src/txtpersona/crew.py`  
+- **Modify inputs** in `src/txtpersona/main.py`  
 
-## Running the Project
+---
 
-To kickstart your crew of AI agents and begin task execution, run this from the root folder of your project:
-
+## 🚀 Running the Project  
+To execute the AI agents and generate the user persona reports, run:  
 ```bash
-$ crewai run
+crewai run
+```
+This will process `users.txt`, format user personas, evaluate completeness, and save the final output to `user_personas/{date}_user_personas.md`.
+
+---
+
+## 📄 Example Output  
+```
+**Name**: John Doe  
+**Age**: 29  
+**Profession**: Software Engineer  
+**Location**: Canada  
+**Missing**: Education  
+**Additional Information**: Interested in improving coding skills, contributing to open-source projects.  
+
+The persona is 80% complete. Consider adding details about John's education background and personal interests to make it more comprehensive.
 ```
 
-This command initializes the txtpersona Crew, assembling the agents and assigning them tasks as defined in your configuration.
+---
 
-This example, unmodified, will run the create a `report.md` file with the output of a research on LLMs in the root folder.
+## 🏰 How It Works  
+TxtPersona CrewAI consists of multiple AI agents:  
 
-## Understanding Your Crew
+### **1⃣ Reader Agent 📚**  
+- Extracts structured user details from `users.txt`.  
 
-The txtpersona Crew is composed of multiple AI agents, each with unique roles, goals, and tools. These agents collaborate on a series of tasks, defined in `config/tasks.yaml`, leveraging their collective skills to achieve complex objectives. The `config/agents.yaml` file outlines the capabilities and configurations of each agent in your crew.
+### **2⃣ Formatter Agent 📝**  
+- Converts extracted data into a structured user persona.  
 
-## Support
+### **3⃣ Evaluator Agent ✅**  
+- Assesses the **completeness** of the persona and suggests missing details.  
 
-For support, questions, or feedback regarding the Txtpersona Crew or crewAI.
-- Visit our [documentation](https://docs.crewai.com)
-- Reach out to us through our [GitHub repository](https://github.com/joaomdmoura/crewai)
-- [Join our Discord](https://discord.com/invite/X4JWnZnxPb)
-- [Chat with our docs](https://chatg.pt/DWjSBZn)
+### **4⃣ Merger Agent 🔗**  
+- Combines the persona with the completeness evaluation.  
 
-Let's create wonders together with the power and simplicity of crewAI.
+### **5⃣ File Writer Agent 💾**  
+- Saves the final structured output to a markdown file.  
+
+---
+
+## 🌟 Contributing  
+1. **Fork this repository**  
+2. **Create a feature branch** (`git checkout -b new-feature`)  
+3. **Commit your changes** (`git commit -m "Added new feature"`)  
+4. **Push to GitHub** (`git push origin new-feature`)  
+5. **Open a Pull Request**  
+
+
+---
+
+## 🐜 License  
+This project is licensed under the **MIT License**.
+
+---
+🚀 **Happy Building!**  
+```
+
