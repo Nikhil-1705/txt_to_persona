@@ -1,0 +1,54 @@
+read_user_data:
+  description: >
+    Read the users.txt file and extract structured user details.
+  expected_output: >
+    A structured list of user details extracted from the file.
+  agent: Reader
+
+format_user_persona:
+  description: >
+    Convert extracted list into a structured user persona format, each seperate paragraph is a different user.
+    If any required information (Name,Age,Profession,Location,Education) is missing, specify it under "Missing."  
+    Any extra details, should be listed under "Additional Information."
+  expected_output: >
+    **Name**: <User's Name>  
+    **Age**: <User's Age>  
+    **Profession**: <User's Profession>  
+    **Location**: <User's Location>  
+    **Missing**: <List all missing mandatory fields>  
+    **Additional Information**: <Include any other provided details>  
+  agent: formatter_agent
+
+evaluate_completeness:
+  description: >
+    Analyze the persona to identify missing details and provide completeness suggestions.
+    The completeness score is calculated as:
+    (Number of available mandatory fields / 5) * 100.
+  expected_output: >
+    The persona is <calculated score>% complete.
+    Consider adding details about the user's education background and personal interests to make it more comprehensive.
+  agent: evaluator_agent
+
+merge_persona_evaluation:
+  description: >
+    Merge the formatted user persona with the completeness evaluation, ensuring that the evaluation appears
+    directly below each user's persona.
+  expected_output: >
+    **Name**: <User's Name>  
+    **Age**: <User's Age>  
+    **Profession**: <User's Profession>  
+    **Location**: <User's Location>  
+    **Missing**: <List all missing mandatory fields>  
+    **Additional Information**: <Include any other provided details>  
+
+    The persona is <calculated score>% complete.
+    Consider adding <missing details> about the user to make it more comprehensive.
+
+  agent: merger_agent
+
+file_write_task:
+  description: >
+   Write the complete user persona to a file , combining the information by formatter_agent and evaluator_agent
+  expected_output: >
+    The full user persona combining the information by formatter_agent and evaluator_agent in a structured dictionary format into a file named user_persona/{date}_user_personas.md
+  agent: file_writer_agent
